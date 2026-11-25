@@ -1,5 +1,5 @@
 // Load @supabase/supabase-js@2 via CDN in each page that includes this script.
-const SUPABASE_URL = 'PASTE_YOUR_PROJECT_URL_HERE';
+const SUPABASE_URL = 'https://eqvjcxuiluzmjkogacqv.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_feXccs1SZRpgND6SqPihyw_lNEHnjTI';
 
 let supabase = null;
