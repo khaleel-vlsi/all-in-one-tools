@@ -1,12 +1,48 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Free Custom QR Code Generator | UtilityHub</title><meta name="description" content="Generate custom QR codes in your browser with color and size options, then download a PNG."><meta property="og:title" content="Free Custom QR Code Generator"><meta property="og:description" content="Create and download QR codes for free."><link rel="stylesheet" href="style.css"><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script><script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js" defer></script><script src="supabase-client.js" defer></script></head>
 <body><nav class="navbar"><div class="nav-inner"><a class="brand" href="index.html"><span class="brand-mark">◆</span> UtilityHub</a><div class="nav-links"><a href="image-tools.html">Image Tools</a><a href="pdf-merger.html">PDF Merger</a><a href="qr-generator.html">QR Generator</a><a href="creator-tools.html">Creator Tools</a><a href="text-calculators.html">Text & Calculators</a></div></div></nav>
-<div class="container"><a class="back-link" href="index.html">← Back to All Tools</a><div class="ad-slot top"><!-- AD_SCRIPT_HERE --></div><div class="page-layout"><main class="panel"><h1 class="page-title">Custom QR Code Generator</h1><p>Enter any URL or text and personalize the appearance.</p>
+<div class="container"><a class="back-link" href="index.html">← Back to All Tools</a><div class="ad-slot top"><script>
+  atOptions = {
+    'key' : 'bb112b6a28a9d291ff3f99670e0eb8ac',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/bb112b6a28a9d291ff3f99670e0eb8ac"></script></div><div class="page-layout"><main class="panel"><h1 class="page-title">Custom QR Code Generator</h1><p>Enter any URL or text and personalize the appearance.</p>
 <div class="field"><label for="qrText">URL or text</label><textarea id="qrText" placeholder="https://example.com"></textarea></div><div class="form-grid"><div class="field"><label for="qrSize">Size</label><select id="qrSize"><option value="128">128 × 128</option><option value="256" selected>256 × 256</option><option value="512">512 × 512</option></select></div><div class="field"><label for="fgColor">QR color</label><input id="fgColor" type="color" value="#0f172a"></div><div class="field"><label for="bgColor">Background</label><input id="bgColor" type="color" value="#ffffff"></div></div><button class="btn" id="generateQr">Generate QR Code</button>
-<div class="output" id="qrOutput" style="display:grid;place-items:center"><span>No QR code generated yet.</span></div><div class="download-row" id="downloadRow"><span>QR code ready</span><a class="btn success" id="downloadQr">⬇ Download PNG</a></div><div class="ad-slot"><!-- AD_SCRIPT_HERE --></div>
+<div class="output" id="qrOutput" style="display:grid;place-items:center"><span>No QR code generated yet.</span></div><div class="download-row" id="downloadRow"><span>QR code ready</span><a class="btn success" id="downloadQr">⬇ Download PNG</a></div><div class="ad-slot"><script>
+  atOptions = {
+    'key' : 'ae8b9ecf1e8d73ca77b922d2705c3401',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/ae8b9ecf1e8d73ca77b922d2705c3401"></script></div>
 <section class="faq"><h2>How to Use / FAQ</h2><details><summary>What can a QR code contain?</summary><p>Add a website URL, plain text, email address, phone number, or other scannable text.</p></details><details><summary>Can I change the colors?</summary><p>Yes. Choose any foreground and background color, keeping sufficient contrast.</p></details><details><summary>How do I download it?</summary><p>Generate the code, then use the green Download PNG button.</p></details></section></main>
-<aside class="sidebar"><div class="ad-slot sidebar"><!-- AD_SCRIPT_HERE --></div><div class="panel"><strong>Instant & private</strong><p>QR codes are created locally using JavaScript.</p></div></aside></div></div>
-<footer class="footer"><div class="footer-inner"><div><strong>UtilityHub</strong><br>Free tools that run locally in your browser.</div><div class="ad-slot" style="min-height:70px;margin:0;width:280px"><!-- AD_SCRIPT_HERE --></div><div><a href="privacy.html">Privacy · Terms · About · Contact</a></div></div></footer>
+<aside class="sidebar"><div class="ad-slot sidebar"><script>
+  atOptions = {
+    'key' : 'ae8b9ecf1e8d73ca77b922d2705c3401',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/ae8b9ecf1e8d73ca77b922d2705c3401"></script></div><div class="panel"><strong>Instant & private</strong><p>QR codes are created locally using JavaScript.</p></div></aside></div></div>
+<footer class="footer"><div class="footer-inner"><div><strong>UtilityHub</strong><br>Free tools that run locally in your browser.</div><div class="ad-slot" style="min-height:70px;margin:0;width:280px"><script>
+  atOptions = {
+    'key' : 'ae8b9ecf1e8d73ca77b922d2705c3401',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/ae8b9ecf1e8d73ca77b922d2705c3401"></script></div><div><a href="privacy.html">Privacy · Terms · About · Contact</a></div></div></footer>
 <script>
 document.getElementById('generateQr').onclick=()=>{const text=document.getElementById('qrText').value.trim();if(!text){alert('Enter a URL or text first.');return}if(!window.QRCode){alert('The QR code library could not load. Check your connection.');return}const output=document.getElementById('qrOutput');output.innerHTML='';const size=parseInt(document.getElementById('qrSize').value);new QRCode(output,{text,width:size,height:size,colorDark:document.getElementById('fgColor').value,colorLight:document.getElementById('bgColor').value,correctLevel:QRCode.CorrectLevel.H});document.getElementById('downloadRow').classList.add('visible');setTimeout(()=>{const canvas=output.querySelector('canvas');const img=output.querySelector('img');const link=document.getElementById('downloadQr');if(canvas)link.href=canvas.toDataURL('image/png');else if(img)link.href=img.src;link.download='utilityhub-qr.png'},100)};
 </script></body></html>

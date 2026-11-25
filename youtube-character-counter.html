@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube Title & Description Character Counter | UtilityHub</title>
+  <meta name="description" content="Check YouTube title, description, and hashtag limits as you type. Track the 100-character title, 5,000-character description, and 15-hashtag limits for free.">
+  <meta property="og:title" content="YouTube Title & Description Character Counter">
+  <meta property="og:description" content="See live character counts and limit indicators for YouTube titles, descriptions, and hashtags.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="supabase-client.js" defer></script>
+</head>
+<body>
+<nav class="navbar"><div class="nav-inner"><a class="brand" href="index.html"><span class="brand-mark">◆</span> UtilityHub</a><div class="nav-links"><a href="image-tools.html">Image Tools</a><a href="pdf-merger.html">PDF Merger</a><a href="qr-generator.html">QR Generator</a><a href="creator-tools.html">Creator Tools</a><a href="text-calculators.html">Text & Calculators</a></div></div></nav>
+<div class="container">
+  <a class="back-link" href="index.html">← Back to All Tools</a>
+  <div class="ad-slot top"><script>
+  atOptions = {
+    'key' : 'bb112b6a28a9d291ff3f99670e0eb8ac',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/bb112b6a28a9d291ff3f99670e0eb8ac"></script></div>
+  <div class="page-layout">
+    <main class="panel">
+      <h1 class="page-title">YouTube Title, Description & Hashtag Length Checker</h1>
+      <p>Write metadata that fits YouTube’s published limits. Counts and progress indicators update instantly as you type; your text stays in this browser.</p>
+      <div class="field">
+        <label for="videoTitle">YouTube video title</label>
+        <input id="videoTitle" type="text" placeholder="Enter your video title">
+        <div class="progress-label"><span>Title characters</span><span id="titleCount" aria-live="polite">0 / 100</span></div>
+        <div class="progress-track" role="progressbar" id="titleMeter" aria-label="YouTube title character limit" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="progress-bar" id="titleBar"></div></div>
+      </div>
+      <div class="field">
+        <label for="videoDescription">YouTube video description</label>
+        <textarea id="videoDescription" rows="8" placeholder="Write your video description"></textarea>
+        <div class="progress-label"><span>Description characters</span><span id="descriptionCount" aria-live="polite">0 / 5,000</span></div>
+        <div class="progress-track" role="progressbar" id="descriptionMeter" aria-label="YouTube description character limit" aria-valuemin="0" aria-valuemax="5000" aria-valuenow="0"><div class="progress-bar" id="descriptionBar"></div></div>
+      </div>
+      <div class="field">
+        <label for="videoHashtags">YouTube hashtags</label>
+        <textarea id="videoHashtags" rows="3" placeholder="#YourTopic #AnotherTopic #VideoTag"></textarea>
+        <div class="progress-label"><span>Hashtags (separate with spaces)</span><span id="hashtagCount" aria-live="polite">0 / 15</span></div>
+        <div class="progress-track" role="progressbar" id="hashtagMeter" aria-label="YouTube hashtag limit" aria-valuemin="0" aria-valuemax="15" aria-valuenow="0"><div class="progress-bar" id="hashtagBar"></div></div>
+      </div>
+      <div class="output">YouTube limits can change. Check YouTube’s current guidance before publishing if your metadata is close to a limit.</div>
+      <div class="ad-slot"><script>
+  atOptions = {
+    'key' : 'ae8b9ecf1e8d73ca77b922d2705c3401',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/ae8b9ecf1e8d73ca77b922d2705c3401"></script></div>
+      <section class="faq">
+        <h2>YouTube Character Counter FAQ</h2>
+        <details><summary>What is the YouTube title character limit?</summary><p>YouTube titles can contain up to 100 characters. The title meter turns red when your text exceeds that limit.</p></details>
+        <details><summary>How long can a YouTube description be?</summary><p>The description limit is 5,000 characters. Paste or write your description to see the live count.</p></details>
+        <details><summary>How many hashtags can I add to a YouTube video?</summary><p>YouTube allows up to 15 hashtags associated with a video. This checker counts whitespace-separated words that start with #.</p></details>
+        <details><summary>Does this checker save or upload my text?</summary><p>No. The counters run locally in your browser and do not send your title, description, or hashtags anywhere.</p></details>
+      </section>
+    </main>
+    <aside class="sidebar">
+      <div class="ad-slot sidebar"><script>
+  atOptions = {
+    'key' : 'ae8b9ecf1e8d73ca77b922d2705c3401',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/ae8b9ecf1e8d73ca77b922d2705c3401"></script></div>
+      <div class="panel"><strong>Keep metadata within limits</strong><p>Use the live meters while editing titles, descriptions, and hashtags for your next upload.</p></div>
+    </aside>
+  </div>
+</div>
+<footer class="footer"><div class="footer-inner"><div><strong>UtilityHub</strong><br>Free tools that run locally in your browser.</div><div class="ad-slot" style="min-height:70px;margin:0;width:280px"><script>
+  atOptions = {
+    'key' : 'ae8b9ecf1e8d73ca77b922d2705c3401',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/ae8b9ecf1e8d73ca77b922d2705c3401"></script></div><div><a href="privacy.html">Privacy · Terms · About · Contact</a></div></div></footer>
+<script>
+function updateLimit(inputId, limit, countId, meterId, barId, formatCount) {
+  const count = Array.from(document.getElementById(inputId).value).length;
+  const overLimit = count > limit;
+  document.getElementById(countId).textContent = formatCount(count, limit);
+  const meter = document.getElementById(meterId);
+  meter.setAttribute('aria-valuenow', String(count));
+  const bar = document.getElementById(barId);
+  bar.style.width = Math.min(100, count / limit * 100) + '%';
+  bar.style.backgroundColor = overLimit ? '#dc2626' : '#10b981';
+}
+
+function updateHashtagLimit() {
+  const value = document.getElementById('videoHashtags').value.trim();
+  const hashtags = value ? value.split(/\s+/).filter(item => item.startsWith('#') && item.length > 1).length : 0;
+  const overLimit = hashtags > 15;
+  document.getElementById('hashtagCount').textContent = hashtags + ' / 15';
+  document.getElementById('hashtagMeter').setAttribute('aria-valuenow', String(hashtags));
+  const bar = document.getElementById('hashtagBar');
+  bar.style.width = Math.min(100, hashtags / 15 * 100) + '%';
+  bar.style.backgroundColor = overLimit ? '#dc2626' : '#10b981';
+}
+
+document.getElementById('videoTitle').addEventListener('input', () => {
+  updateLimit('videoTitle', 100, 'titleCount', 'titleMeter', 'titleBar', (count, limit) => count + ' / ' + limit);
+});
+document.getElementById('videoDescription').addEventListener('input', () => {
+  updateLimit('videoDescription', 5000, 'descriptionCount', 'descriptionMeter', 'descriptionBar', (count, limit) => count.toLocaleString() + ' / ' + limit.toLocaleString());
+});
+document.getElementById('videoHashtags').addEventListener('input', updateHashtagLimit);
+</script>
+</body>
+</html>

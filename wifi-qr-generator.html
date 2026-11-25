@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Free WiFi QR Code Generator | Share Wi-Fi Access | UtilityHub</title>
+  <meta name="description" content="Create and download a WiFi QR code card. Enter your network name, password, and encryption type to share Wi-Fi access instantly.">
+  <meta property="og:title" content="Free WiFi QR Code Generator">
+  <meta property="og:description" content="Generate a scannable Wi-Fi access card in your browser. Your network details stay on your device.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js" defer></script>
+  <script src="supabase-client.js" defer></script>
+</head>
+<body>
+<nav class="navbar"><div class="nav-inner"><a class="brand" href="index.html"><span class="brand-mark">◆</span> UtilityHub</a><div class="nav-links"><a href="image-tools.html">Image Tools</a><a href="pdf-merger.html">PDF Merger</a><a href="qr-generator.html">QR Generator</a><a href="creator-tools.html">Creator Tools</a><a href="text-calculators.html">Text & Calculators</a></div></div></nav>
+<div class="container">
+  <a class="back-link" href="index.html">← Back to All Tools</a>
+  <div class="ad-slot top"><script>
+  atOptions = {
+    'key' : 'bb112b6a28a9d291ff3f99670e0eb8ac',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/bb112b6a28a9d291ff3f99670e0eb8ac"></script></div>
+  <div class="page-layout">
+    <main class="panel">
+      <h1 class="page-title">Free WiFi QR Code Generator</h1>
+      <p>Create a scannable Wi-Fi card so guests can join your network without typing the password. QR generation happens locally in your browser.</p>
+      <div class="field">
+        <label for="ssid">WiFi Network Name (SSID)</label>
+        <input id="ssid" type="text" maxlength="32" autocomplete="off" placeholder="Your network name" required>
+      </div>
+      <div class="field">
+        <label for="wifiPassword">Password</label>
+        <input id="wifiPassword" type="password" maxlength="63" autocomplete="new-password" placeholder="Enter your Wi-Fi password">
+      </div>
+      <div class="field">
+        <label for="encryption">Encryption</label>
+        <select id="encryption">
+          <option value="WPA" selected>WPA / WPA2 / WPA3</option>
+          <option value="WEP">WEP</option>
+          <option value="nopass">None (open network)</option>
+        </select>
+      </div>
+      <button class="btn" id="generateWifiQr" type="button">Generate WiFi QR Card</button>
+      <div class="output" id="status" role="status">Your network details stay in this browser and are encoded into the QR code.</div>
+      <section class="output" id="wifiCard" hidden>
+        <h2>Scan to connect to Wi-Fi</h2>
+        <p id="wifiCardName"></p>
+        <img id="wifiCardPreview" alt="Downloadable Wi-Fi QR code card" style="display:block;width:min(100%,360px);height:auto;margin:0 auto 16px">
+        <a class="btn success" id="downloadWifiCard" download="wifi-qr-card.png">Download WiFi Card</a>
+      </section>
+      <div id="qrCodeSource" aria-hidden="true" style="position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden"></div>
+      <div class="ad-slot"><script>
+  atOptions = {
+    'key' : 'ae8b9ecf1e8d73ca77b922d2705c3401',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/ae8b9ecf1e8d73ca77b922d2705c3401"></script></div>
+      <section class="faq">
+        <h2>WiFi QR Code FAQ</h2>
+        <details><summary>How do I connect using a WiFi QR code?</summary><p>Open your phone camera or QR scanner and point it at the downloaded card. Supported devices will offer to join the network.</p></details>
+        <details><summary>Is my Wi-Fi password uploaded?</summary><p>No. The QR code is generated locally. Your password is included in the QR code, so share the downloaded card only with people you trust.</p></details>
+        <details><summary>Which encryption type should I choose?</summary><p>Choose WPA for most modern home and business networks, WEP only for older routers, or None for an open network without a password.</p></details>
+        <details><summary>Can I use a hidden network?</summary><p>This simple generator creates a QR code for a visible network. Hidden network settings may need to be entered manually on some devices.</p></details>
+      </section>
+    </main>
+    <aside class="sidebar">
+      <div class="ad-slot sidebar"><script>
+  atOptions = {
+    'key' : 'ae8b9ecf1e8d73ca77b922d2705c3401',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/ae8b9ecf1e8d73ca77b922d2705c3401"></script></div>
+      <div class="panel"><strong>Share Wi-Fi simply</strong><p>Print the downloaded card or display it on a screen. Your password is encoded in the QR, so keep the card private.</p></div>
+    </aside>
+  </div>
+</div>
+<footer class="footer"><div class="footer-inner"><div><strong>UtilityHub</strong><br>Free tools that run locally in your browser.</div><div class="ad-slot" style="min-height:70px;margin:0;width:280px"><script>
+  atOptions = {
+    'key' : 'ae8b9ecf1e8d73ca77b922d2705c3401',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/ae8b9ecf1e8d73ca77b922d2705c3401"></script></div><div><a href="privacy.html">Privacy · Terms · About · Contact</a></div></div></footer>
+<script>
+const ssidInput = document.getElementById('ssid');
+const passwordInput = document.getElementById('wifiPassword');
+const encryptionInput = document.getElementById('encryption');
+const status = document.getElementById('status');
+const card = document.getElementById('wifiCard');
+const qrSource = document.getElementById('qrCodeSource');
+const downloadLink = document.getElementById('downloadWifiCard');
+let cardUrl = null;
+
+function escapeWifiValue(value) {
+  return value.replace(/([\\;,:"])/g, '\\$1');
+}
+
+encryptionInput.addEventListener('change', () => {
+  const needsPassword = encryptionInput.value !== 'nopass';
+  passwordInput.required = needsPassword;
+  passwordInput.disabled = !needsPassword;
+  passwordInput.placeholder = needsPassword ? 'Enter your Wi-Fi password' : 'No password for an open network';
+});
+encryptionInput.dispatchEvent(new Event('change'));
+
+document.getElementById('generateWifiQr').addEventListener('click', async () => {
+  const ssid = ssidInput.value.trim();
+  const password = passwordInput.value;
+  const encryption = encryptionInput.value;
+  if (!ssid) {
+    status.textContent = 'Enter your WiFi network name (SSID).';
+    return;
+  }
+  if (encryption !== 'nopass' && !password) {
+    status.textContent = 'Enter the password for this protected network.';
+    return;
+  }
+  if (!window.QRCode) {
+    status.textContent = 'The QR code library could not load. Check your internet connection and try again.';
+    return;
+  }
+
+  const wifiData = encryption === 'nopass'
+    ? `WIFI:T:nopass;S:${escapeWifiValue(ssid)};;`
+    : `WIFI:T:${encryption};S:${escapeWifiValue(ssid)};P:${escapeWifiValue(password)};;`;
+  qrSource.innerHTML = '';
+  card.hidden = true;
+  status.textContent = 'Generating your WiFi card locally...';
+
+  try {
+    new QRCode(qrSource, { text: wifiData, width: 256, height: 256, correctLevel: QRCode.CorrectLevel.M });
+    await new Promise(resolve => setTimeout(resolve, 0));
+    const qrCanvas = qrSource.querySelector('canvas');
+    if (!qrCanvas) throw new Error('Could not render the QR code in this browser.');
+
+    const canvas = document.createElement('canvas');
+    canvas.width = 360;
+    canvas.height = 420;
+    const context = canvas.getContext('2d');
+    if (!context) throw new Error('Canvas is unavailable in this browser.');
+    context.fillStyle = '#ffffff';
+    context.fillRect(0, 0, canvas.width, canvas.height);
+    context.fillStyle = '#0f172a';
+    context.textAlign = 'center';
+    context.font = 'bold 24px sans-serif';
+    context.fillText('Wi-Fi Access', 180, 42);
+    context.font = 'bold 18px sans-serif';
+    context.fillText(ssid.slice(0, 30), 180, 70);
+    context.drawImage(qrCanvas, 52, 88, 256, 256);
+    context.fillStyle = '#475569';
+    context.font = '16px sans-serif';
+    context.fillText('Scan with your phone camera', 180, 380);
+    context.font = '13px sans-serif';
+    context.fillText('Network details are encoded in this QR code', 180, 400);
+
+    if (cardUrl) URL.revokeObjectURL(cardUrl);
+    const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+    if (!blob) throw new Error('Could not create the downloadable WiFi card.');
+    cardUrl = URL.createObjectURL(blob);
+    document.getElementById('wifiCardPreview').src = cardUrl;
+    document.getElementById('wifiCardName').textContent = `Network: ${ssid}`;
+    downloadLink.href = cardUrl;
+    downloadLink.download = (ssid.replace(/[^a-z0-9_-]+/gi, '-') || 'wifi') + '-qr-card.png';
+    card.hidden = false;
+    status.textContent = 'WiFi QR card ready. Share it only with people you trust.';
+    if (typeof incrementProcessedFile === 'function') incrementProcessedFile();
+  } catch (error) {
+    status.textContent = error.message || 'Could not generate the WiFi QR card.';
+  }
+});
+</script>
+</body>
+</html>

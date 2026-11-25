@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compress JPG or PNG to 50KB Online Free | UtilityHub</title>
+  <meta name="description" content="Compress JPG and PNG images to a target size such as 50KB for free. Adjust the target size and process images privately in your browser.">
+  <meta property="og:title" content="Compress JPG or PNG to 50KB Online Free">
+  <meta property="og:description" content="Reduce image file size locally with HTML5 Canvas. No uploads or account required.">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+  <script src="supabase-client.js" defer></script>
+</head>
+<body>
+<nav class="navbar"><div class="nav-inner"><a class="brand" href="index.html"><span class="brand-mark">◆</span> UtilityHub</a><div class="nav-links"><a href="image-tools.html">Image Tools</a><a href="pdf-merger.html">PDF Merger</a><a href="qr-generator.html">QR Generator</a><a href="creator-tools.html">Creator Tools</a><a href="text-calculators.html">Text & Calculators</a></div></div></nav>
+<div class="container">
+  <a class="back-link" href="index.html">← Back to All Tools</a>
+  <div class="ad-slot top"><script>
+  atOptions = {
+    'key' : 'bb112b6a28a9d291ff3f99670e0eb8ac',
+    'format' : 'iframe',
+    'height' : 90,
+    'width' : 728,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/bb112b6a28a9d291ff3f99670e0eb8ac"></script></div>
+  <div class="page-layout">
+    <main class="panel">
+      <h1 class="page-title">Compress JPG or PNG to 50KB</h1>
+      <p>Choose an image and a target file size. The image is resized and compressed on your device using HTML5 Canvas; it is never uploaded.</p>
+      <div class="file-drop">
+        <strong>Select a JPG or PNG image</strong><br>
+        <input id="imageFile" type="file" accept="image/jpeg,image/png,.jpg,.jpeg,.png">
+      </div>
+      <div class="field">
+        <label for="targetSize">Target file size (KB)</label>
+        <input id="targetSize" type="number" min="1" max="10240" value="50" required>
+        <small>We’ll aim for a file at or below your target. The output is a JPEG image.</small>
+      </div>
+      <button class="btn" id="compressButton" type="button">Compress Image</button>
+      <div class="progress-wrap" id="progress" aria-live="polite">
+        <div class="progress-label"><span>Compressing locally...</span><span id="progressText">0%</span></div>
+        <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+      </div>
+      <div class="output" id="status" role="status">Your selected image stays on this device.</div>
+      <div class="download-row" id="downloadRow">
+        <span id="resultSize">Compressed image ready</span>
+        <a class="btn success" id="downloadImage" download="compressed-image.jpg">Download JPG</a>
+      </div>
+      <div class="ad-slot"><script>
+  atOptions = {
+    'key' : 'ae8b9ecf1e8d73ca77b922d2705c3401',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/ae8b9ecf1e8d73ca77b922d2705c3401"></script></div>
+      <section class="faq">
+        <h2>JPG to 50KB Compressor FAQ</h2>
+        <details><summary>How do I compress a JPG or PNG to 50KB?</summary><p>Select an image, enter 50 in the target size field, and choose Compress Image. The tool searches image quality and dimensions locally to get the file at or below the target when possible.</p></details>
+        <details><summary>Does this tool upload my image?</summary><p>No. Your image is decoded and compressed in your browser with HTML5 Canvas. It is not sent to a server.</p></details>
+        <details><summary>Why might the result not be exactly 50KB?</summary><p>Image encoders produce discrete file sizes, so an exact byte size cannot always be achieved. The tool aims for a result at or below your selected target and reports the actual size.</p></details>
+        <details><summary>What happens to transparent PNG areas?</summary><p>The output is a JPEG, which does not support transparency. Transparent areas are composited onto a white background.</p></details>
+      </section>
+    </main>
+    <aside class="sidebar">
+      <div class="ad-slot sidebar"><script>
+  atOptions = {
+    'key' : 'ae8b9ecf1e8d73ca77b922d2705c3401',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/ae8b9ecf1e8d73ca77b922d2705c3401"></script></div>
+      <div class="panel"><strong>Private image compression</strong><p>Canvas processing happens in this tab. Choose a lower target to further reduce large images.</p></div>
+    </aside>
+  </div>
+</div>
+<footer class="footer"><div class="footer-inner"><div><strong>UtilityHub</strong><br>Free tools that run locally in your browser.</div><div class="ad-slot" style="min-height:70px;margin:0;width:280px"><script>
+  atOptions = {
+    'key' : 'ae8b9ecf1e8d73ca77b922d2705c3401',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script data-cfasync="false" src="https://bauval.org/22/ae8b9ecf1e8d73ca77b922d2705c3401"></script></div><div><a href="privacy.html">Privacy · Terms · About · Contact</a></div></div></footer>
+<script>
+const imageInput = document.getElementById('imageFile');
+const targetInput = document.getElementById('targetSize');
+const button = document.getElementById('compressButton');
+const status = document.getElementById('status');
+const progress = document.getElementById('progress');
+const progressBar = document.getElementById('progressBar');
+const progressText = document.getElementById('progressText');
+const downloadRow = document.getElementById('downloadRow');
+const downloadLink = document.getElementById('downloadImage');
+let downloadUrl = null;
+
+function canvasToBlob(canvas, quality) {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob(blob => blob ? resolve(blob) : reject(new Error('Your browser could not encode this image.')), 'image/jpeg', quality);
+  });
+}
+
+async function findTargetBlob(image, targetBytes) {
+  const canvas = document.createElement('canvas');
+  const context = canvas.getContext('2d');
+  if (!context) throw new Error('Canvas is unavailable in this browser.');
+
+  let width = image.width;
+  let height = image.height;
+  let smallestBlob = null;
+
+  for (let resizeAttempt = 0; resizeAttempt < 12; resizeAttempt++) {
+    canvas.width = width;
+    canvas.height = height;
+    context.fillStyle = '#ffffff';
+    context.fillRect(0, 0, width, height);
+    context.drawImage(image, 0, 0, width, height);
+
+    let low = 0.05;
+    let high = 0.95;
+    let bestFit = null;
+
+    for (let qualityAttempt = 0; qualityAttempt < 8; qualityAttempt++) {
+      const quality = (low + high) / 2;
+      const blob = await canvasToBlob(canvas, quality);
+      if (blob.size <= targetBytes) {
+        bestFit = blob;
+        low = quality;
+      } else {
+        high = quality;
+      }
+    }
+
+    if (bestFit) return { blob: bestFit, width, height, metTarget: true };
+
+    smallestBlob = await canvasToBlob(canvas, 0.05);
+    if (resizeAttempt === 11 || (width === 1 && height === 1)) break;
+    const scale = Math.max(0.2, Math.min(0.85, Math.sqrt(targetBytes / smallestBlob.size) * 0.9));
+    const nextWidth = Math.max(1, Math.floor(width * scale));
+    const nextHeight = Math.max(1, Math.floor(height * scale));
+    if (nextWidth === width && nextHeight === height) break;
+    width = nextWidth;
+    height = nextHeight;
+  }
+
+  return { blob: smallestBlob, width, height, metTarget: false };
+}
+
+button.addEventListener('click', async () => {
+  const file = imageInput.files[0];
+  const targetKb = Number(targetInput.value);
+  if (!file || !['image/jpeg', 'image/png'].includes(file.type)) {
+    status.textContent = 'Choose a valid JPG or PNG image first.';
+    status.className = 'output';
+    return;
+  }
+  if (!Number.isFinite(targetKb) || targetKb <= 0 || targetKb > 10240) {
+    status.textContent = 'Enter a target size between 1 and 10,240 KB.';
+    status.className = 'output';
+    return;
+  }
+
+  button.disabled = true;
+  downloadRow.classList.remove('visible');
+  status.textContent = 'Compressing your image in this browser...';
+  status.className = 'output';
+  progress.classList.add('visible');
+  progressBar.style.width = '0%';
+  progressText.textContent = '0%';
+  const startedAt = Date.now();
+  const timer = setInterval(() => {
+    const percent = Math.min(95, Math.floor((Date.now() - startedAt) / 2000 * 95));
+    progressBar.style.width = percent + '%';
+    progressText.textContent = percent + '%';
+  }, 50);
+
+  try {
+    const image = await createImageBitmap(file);
+    let result;
+    try {
+      result = await Promise.all([
+        findTargetBlob(image, targetKb * 1024),
+        new Promise(resolve => setTimeout(resolve, Math.max(0, 2000 - (Date.now() - startedAt))))
+      ]).then(results => results[0]);
+    } finally {
+      image.close();
+    }
+    clearInterval(timer);
+    progressBar.style.width = '100%';
+    progressText.textContent = '100%';
+
+    if (!result.blob) throw new Error('The image could not be compressed.');
+    if (downloadUrl) URL.revokeObjectURL(downloadUrl);
+    downloadUrl = URL.createObjectURL(result.blob);
+    downloadLink.href = downloadUrl;
+    downloadLink.download = (file.name.replace(/\.[^.]+$/, '') || 'image') + '-compressed.jpg';
+    document.getElementById('resultSize').textContent = result.blob.size >= 1024
+      ? (result.blob.size / 1024).toFixed(1) + ' KB · ' + result.width + ' × ' + result.height + ' px'
+      : result.blob.size + ' bytes · ' + result.width + ' × ' + result.height + ' px';
+    status.textContent = result.metTarget
+      ? 'Compression complete. The result is at or below your target size.'
+      : 'The smallest available result is still above your target size.';
+    status.className = result.metTarget ? 'output success' : 'output';
+    downloadRow.classList.add('visible');
+    if (typeof incrementProcessedFile === 'function') incrementProcessedFile();
+  } catch (error) {
+    clearInterval(timer);
+    status.textContent = error.message || 'Image compression failed. Try another image.';
+    status.className = 'output';
+  } finally {
+    button.disabled = false;
+  }
+});
+</script>
+</body>
+</html>
