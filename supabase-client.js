@@ -1,6 +1,7 @@
 // Load @supabase/supabase-js@2 via CDN in each page that includes this script.
 const SUPABASE_URL = 'https://eqvjcxuiluzmjkogacqv.supabase.co';
 const SUPABASE_ANON_KEY = 'sb_publishable_feXccs1SZRpgND6SqPihyw_lNEHnjTI';
+const FALLBACK_COUNTER = '1,250+';
 
 let supabase = null;
 
@@ -43,7 +44,7 @@ async function loadGlobalCounter() {
   const counter = document.querySelector('[data-global-counter]');
   if (!counter) return;
   if (!supabase) {
-    counter.textContent = '1250';
+    counter.textContent = FALLBACK_COUNTER;
     return;
   }
   try {
@@ -53,9 +54,11 @@ async function loadGlobalCounter() {
       .eq('id', 1)
       .maybeSingle();
     if (error) throw error;
-    counter.textContent = (data?.total_uses || 1250).toLocaleString();
+    counter.textContent = data?.total_uses == null
+      ? FALLBACK_COUNTER
+      : data.total_uses.toLocaleString();
   } catch (error) {
-    counter.textContent = '1250';
+    counter.textContent = FALLBACK_COUNTER;
   }
 }
 
@@ -88,7 +91,13 @@ async function submitToolRequest(event) {
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
+function initializePage() {
   loadGlobalCounter();
   document.querySelectorAll('[data-tool-request-form]').forEach(form => form.addEventListener('submit', submitToolRequest));
-});
+}
+
+if (document.readyState === 'loading') {
+  window.addEventListener('DOMContentLoaded', initializePage, { once: true });
+} else {
+  initializePage();
+}
